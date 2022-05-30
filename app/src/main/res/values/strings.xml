@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RecycleReviewAppTP</string>
+    <string name="matricule">Matricule</string>
+    <string name="nom">Nom</string>
 </resources>
