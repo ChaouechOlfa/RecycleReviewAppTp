@@ -1,38 +1,38 @@
 package com.example.recyclereviewapptp;
 
 public class Etudiant {
-    private String Matricule;
-    private String Nom;
+    private String matricule;
+    private String nom;
 
     public Etudiant() {
     }
 
     public Etudiant(String matricule, String nom) {
-        Matricule = matricule;
-        Nom = nom;
+        this.matricule = matricule;
+        this.nom = nom;
     }
 
     public String getMatricule() {
-        return Matricule;
+        return matricule;
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setMatricule(String matricule) {
-        Matricule = matricule;
+        this.matricule = matricule;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
     }
 
     @Override
     public String toString() {
         return "Etudiant{" +
-                "Matricule='" + Matricule + '\'' +
-                ", Nom='" + Nom + '\'' +
+                "matricule='" + matricule + '\'' +
+                ", nom='" + nom + '\'' +
                 '}';
     }
 }

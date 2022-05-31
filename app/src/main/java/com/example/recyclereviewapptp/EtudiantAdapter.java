@@ -1,5 +1,6 @@
 package com.example.recyclereviewapptp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,30 +15,40 @@ import java.util.List;
 
 public class EtudiantAdapter extends RecyclerView.Adapter <EtudiantAdapter.EtudiantViewHolder>{
     private Context context;
-    private List<Etudiant> listEtudiants;
+    private List<Etudiant> listEtudiant;
+
+    public EtudiantAdapter(Context context, List<Etudiant> listEtudiant) {
+        this.context = context;
+        this.listEtudiant = listEtudiant;
+    }
+
 
     @NonNull
     @Override
     public EtudiantViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.recylerviewitem,parent, false);
+        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.recylerviewitem,parent,false);
         EtudiantViewHolder etudiantViewHolder=new EtudiantViewHolder(view);
         return etudiantViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull EtudiantViewHolder holder, int position) {
-        Etudiant etudiant=listEtudiants.get(position);
+        Etudiant etudiant=listEtudiant.get(position);
         holder.matricule.setText(etudiant.getMatricule());
         holder.nom.setText(etudiant.getNom());
 
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,listEtudiant.get(position).getMatricule(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return listEtudiants.size();
+        return listEtudiant.size();
     }
 
     public static class EtudiantViewHolder extends RecyclerView.ViewHolder{
@@ -50,4 +61,9 @@ public class EtudiantAdapter extends RecyclerView.Adapter <EtudiantAdapter.Etudi
             nom=itemView.findViewById(R.id.nom);
         }
     }
+
+
+
+
+
 }
